@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: namespace-a
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: namespace-b
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: namespace-c
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: namespacea-pod
+  namespace: namespace-a
+  labels:
+    app: namespacea-pod
+spec:
+  containers:
+    - name: container1
+      image: karthik1409docker/nodeapps:v1
+      ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: namespaceb-pod
+  namespace: namespace-b
+  labels:
+    app: namespaceb-pod
+spec:
+  containers:
+    - name: container1
+      image: karthik1409docker/nodeapps:v1
+      ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: namespacec-pod
+  namespace: namespace-c
+  labels:
+    app: namespacec-pod
+spec:
+  containers:
+    - name: container1
+      image: karthik1409docker/nodeapps:v1
+      ports:
+        - containerPort: 3000
